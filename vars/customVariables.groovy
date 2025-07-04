@@ -12,6 +12,19 @@
 
 def call() {
   return [
+BASE_DIR: '/var/lib/jenkins/deployment_files',
+SCRIPTS_DIR:"'${BASE_DIR}'/micro-services/java-8",
+INVENTOR_DIR:"'${BASE_DIR}'/inventory",
+DEPENDENCIES_DIR:"'${BASE_DIR}'/dependencies",
+DOCKERFILE:'micro-service-dockerfile',
+DEPLOYMENT_FILE:'micro-service-deployment.yml',
+START_SCRIPT_FILE:'start.sh',
+ANSIBLE_INVENTORY_FILE:'inventory_file',
+SERVICE_NAME:'oneload-zong-load-service',
+LOGBACK_FILE_PATH:'src/main/resources/',
+LOGBACK_FILE:'logback-spring.xml',
+PORT:'2022',
+
     DEVOPS_USERS: ['munawar', 'waqas'],
     DEVOPS_DEV_USERS: ['munawar', 'waqas', 'rehan', 'ali', 'sulman', 'maria', 'developer'],
     ENVIRONMENTS: ['dev', 'qa1', 'qa2', 'uat', 'uat1', 'uat2', 'sync'],
