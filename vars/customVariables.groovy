@@ -12,6 +12,8 @@
 
 def call() {
   return [
+    DEVOPS_USERS: ['munawar', 'waqas'],
+    DEVOPS_DEV_USERS: ['munawar', 'waqas', 'rehan', 'ali', 'sulman', 'maria', 'developer'],
     ENVIRONMENTS: ['qa', 'staging', 'prod'],
     DOCKER_REGISTRY: 'docker.oneloadpk.com',
     IMAGE_VERSION: 'v1.0.0',

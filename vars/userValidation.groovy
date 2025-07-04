@@ -1,4 +1,4 @@
-def call() {
+def call(Map config) {
     // Define user-related variables here
     def devOpsUsers = ['munawar', 'waqas'] // Users allowed for all environments
     def devOpsDevUsers = ['munawar', 'waqas', 'rehan', 'ali', 'sulman', 'maria', 'developer'] // Additional users for dev
@@ -16,7 +16,7 @@ def call() {
     def isDevOrQaEnv = developmentEnvs.contains(params.ENVIRONMENTS)
 
     // Validate user permissions
-    if (params.ENVIRONMENTS == 'dev' && devOpsDevUsers.contains(userName)) {
+    if (params.ENVIRONMENTS == 'dev' && ${config.DEVOPS_DEV_USERS}.contains(userName)) {
         echo "User ${userName} is allowed to deploy to the Dev environment."
     } else if (isDevOrQaEnv && devOpsUsers.contains(userName)) {
         echo "User ${userName} is allowed to deploy to the ${params.ENVIRONMENTS} environment."
