@@ -11,6 +11,7 @@ sh"""
     echo env_name: '${params.ENVIRONMENTS}' >>tags.txt
     echo workspace_name: '${WORKSPACE}' >>tags.txt
     echo Docker Registory: '${config.DOCKER_REGISTRY}' >>tags.txt
+    cp -r '${config.SCRIPTS_DIR}'/'${config.DEPLOYMENT_FILE}' .
 """
     }
 }
