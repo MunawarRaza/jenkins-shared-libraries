@@ -1,14 +1,11 @@
-def call() {
-    def myvars = myvars()
-    return myvars
-}
+//def call() {
+//    def myvars = myvars()
+//    return myvars
+//}
 
-def myvars(){
-def Username="Munawar"
-    return [ 
-	Email="munawarraza068@gmail.com",
-	CLASS="demo",
-	COMPANY="EpSystems"
-    ]
+def ENVIRONMENT = {
+    'dev': 'Development Environment',
+    'qa': 'Quality Assurance Environment',
+    'prod': 'Production Environment'
 // def Email="munawarraza068@gmail.com"
 }
