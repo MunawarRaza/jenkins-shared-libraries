@@ -1,7 +1,7 @@
 def call(Map config) {
     // Define user-related variables here
-    def devOpsUsers = ['munawar', 'waqas'] // Users allowed for all environments
-    def devOpsDevUsers = ['munawar', 'waqas', 'rehan', 'ali', 'sulman', 'maria', 'developer'] // Additional users for dev
+//    def devOpsUsers = ['munawar', 'waqas'] // Users allowed for all environments
+//    def devOpsDevUsers = ['munawar', 'waqas', 'rehan', 'ali', 'sulman', 'maria', 'developer'] // Additional users for dev
     def developmentEnvs = ['dev', 'qa1', 'qa2', 'uat', 'uat1', 'uat2', 'sync']
 
     // Set custom display name
@@ -13,12 +13,12 @@ def call(Map config) {
     echo "Triggered by user: ${userName}"
 
     // Check if the selected environment is a development environment
-    def isDevOrQaEnv = developmentEnvs.contains(params.ENVIRONMENTS)
+    def isDevOrQaEnv = config.ENVIRONMENTS.contains(params.ENVIRONMENTS)
 
     // Validate user permissions
     if (params.ENVIRONMENTS == 'dev' && config.DEVOPS_DEV_USERS.contains(userName)) {
         echo "User ${userName} is allowed to deploy to the Dev environment."
-    } else if (isDevOrQaEnv && devOpsUsers.contains(userName)) {
+    } else if (isDevOrQaEnv && config.DEVOPS_USERS.contains(userName)) {
         echo "User ${userName} is allowed to deploy to the ${params.ENVIRONMENTS} environment."
     } else {
         error("User ${userName} is not authorized to deploy to the ${params.ENVIRONMENTS} environment.")
