@@ -1,7 +1,6 @@
 def call(Map config){
     script {
 sh"""
-    echo '${config.BASE_DIR}'
     echo '${config.DEPLOYMENT_FILE}'
     rm -f tags.txt
     echo tag_name: '${params.TAG}' >>tags.txt
