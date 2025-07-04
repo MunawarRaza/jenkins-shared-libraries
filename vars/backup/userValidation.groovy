@@ -1,7 +1,11 @@
 def call(Map config) {
     // Define user-related variables here
-    
-    currentBuild.displayName = "ENV-${params.ENVIRONMENTS} , Branch - ${params.TAG}"
+//    def devOpsUsers = ['munawar', 'waqas'] // Users allowed for all environments
+//    def devOpsDevUsers = ['munawar', 'waqas', 'rehan', 'ali', 'sulman', 'maria', 'developer'] // Additional users for dev
+    def developmentEnvs = ['dev', 'qa1', 'qa2', 'uat', 'uat1', 'uat2', 'sync']
+
+    // Set custom display name
+    // currentBuild.displayName = "ENV-${params.ENVIRONMENTS} , Branch - ${params.TAG}"
 
     // Get the triggering user's name
     def cause = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')
