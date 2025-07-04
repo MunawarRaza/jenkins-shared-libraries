@@ -1,4 +1,4 @@
-def call(Map params, Map config){
+def call(Map config){
 	echo "Registry: ${config.DOCKER_REGISTRY}"
 	echo "Your Job name is ${env.JOB_NAME}"
   sh """
