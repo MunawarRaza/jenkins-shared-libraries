@@ -18,7 +18,7 @@ def call() {
   return [
     BASE_DIR: BASE_DIR,
     SCRIPTS_DIR: SCRIPTS_DIR,
-    INVENTOR_DIR: INVENTOR_DIR
+    INVENTOR_DIR: INVENTOR_DIR,
     DEPENDENCIES_DIR: DEPENDENCIES_DIR,
     DOCKERFILE:'micro-service-dockerfile',
     DEPLOYMENT_FILE:'micro-service-deployment.yml',
