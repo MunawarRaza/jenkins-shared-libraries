@@ -36,9 +36,9 @@ def call() {
     IMAGE_VERSION: 'v1.0.0',
     DEPLOY_TIMEOUT: 300,
     SERVICE_IPS: [
-	DEV_IP: "10.130.21.22",
-	QA1_IP: "10.130.22.22",
-	QA2_IP: "10.130.23.22"
+	dev: "10.130.21.22",
+	qa1: "10.130.22.22",
+	qa2: "10.130.23.22"
 	],
     // add more variables as needed
   ]
