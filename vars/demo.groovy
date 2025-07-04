@@ -1,6 +1,6 @@
 def function1(){
-    sh "echo Hello World"
+    sh "echo Hello World ${Username}"
 }
-def function2(){
-  sh "echo Hellow Function2"
+def function2(String name, String email){
+  sh "echo Hi ${name}, Your email is ${email}"
 }
