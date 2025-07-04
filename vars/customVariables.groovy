@@ -11,11 +11,15 @@
 //}
 
 def call() {
+    def BASE_DIR="/var/lib/jenkins/deployment_files"
+    def SCRIPTS_DIR="${BASE_DIR}/micro-services/java-8"
+    def INVENTOR_DIR="${BASE_DIR}/inventory"
+    def DEPENDENCIES_DIR="${BASE_DIR}/dependencies"
   return [
-    BASE_DIR: "/var/lib/jenkins/deployment_files",
-//    SCRIPTS_DIR:"'${BASE_DIR}'/micro-services/java-8",
-//    INVENTOR_DIR:"'${BASE_DIR}'/inventory",
-//    DEPENDENCIES_DIR:"'${BASE_DIR}'/dependencies",
+    BASE_DIR: BASE_DIR,
+    SCRIPTS_DIR: SCRIPTS_DIR,
+    INVENTOR_DIR: INVENTOR_DIR
+    DEPENDENCIES_DIR: DEPENDENCIES_DIR,
     DOCKERFILE:'micro-service-dockerfile',
     DEPLOYMENT_FILE:'micro-service-deployment.yml',
     START_SCRIPT_FILE:'start.sh',

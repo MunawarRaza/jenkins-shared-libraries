@@ -1,6 +1,9 @@
 def call(Map config){
     script {
 sh"""
+    echo BASE_DIR: '${config.BASE_DIR}'
+    echo Dockerfile '${config.DOCKERFILE}'
+     
     echo '${config.DEPLOYMENT_FILE}'
     rm -f tags.txt
     echo tag_name: '${params.TAG}' >>tags.txt
