@@ -15,11 +15,13 @@ def call() {
     def SCRIPTS_DIR="${BASE_DIR}/micro-services/java-8"
     def INVENTOR_DIR="${BASE_DIR}/inventory"
     def DEPENDENCIES_DIR="${BASE_DIR}/dependencies"
+    def DOCKER_PRIVATE_REGISTRY_CREDENTIALS_ID = credentials('private-docker-registry')
   return [
     BASE_DIR: BASE_DIR,
     SCRIPTS_DIR: SCRIPTS_DIR,
     INVENTOR_DIR: INVENTOR_DIR,
     DEPENDENCIES_DIR: DEPENDENCIES_DIR,
+    DOCKER_PRIVATE_REGISTRY_CREDENTIALS_ID: DOCKER_PRIVATE_REGISTRY_CREDENTIALS_ID,
     DOCKERFILE:'micro-service-dockerfile',
     DEPLOYMENT_FILE:'micro-service-deployment.yml',
     START_SCRIPT_FILE:'start.sh',
