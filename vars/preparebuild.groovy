@@ -14,11 +14,9 @@ sh"""
     cp -r '${config.SCRIPTS_DIR}'/'${config.DEPLOYMENT_FILE}' .
 
     echo ### Setup Inventory file for the deployment ###
-    cp -r '${config.INVENTOR_DIR}'/'${config.ANSIBLE_INVENTORY_FILE}' .
-   
-    sed -i 's/target/${params.ENVIRONMENTS}/g' '${config.ANSIBLE_INVENTORY_FILE}'
-    
-    sed -i 's/ip/${config.SERVICE_IPS[params.ENVIRONMENTS]}/g' '${config.ANSIBLE_INVENTORY_FILE}'
+     
+    echo '[${params.ENVIRONMENTS}]' >> '${config.ANSIBLE_INVENTORY_FILE}' 
+    sed -i '1a ${config.SERVICE_IPS[params.ENVIRONMENTS]}' '${config.ANSIBLE_INVENTORY_FILE}'	
    
 """
     }
