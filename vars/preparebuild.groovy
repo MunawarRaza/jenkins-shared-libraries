@@ -15,7 +15,7 @@ sh"""
      cp -f '${config.SCRIPTS_DIR}'/'${config.DEPLOYMENT_FILE}' .
      echo '[${params.ENVIRONMENTS}]' >> '${config.ANSIBLE_INVENTORY_FILE}'
     if [ ${params.ENVIRONMENTS} = 'sync' ];then
-        sed -i '1a ${config.SERVICE_IPS.qa1' '${config.ANSIBLE_INVENTORY_FILE}'
+        sed -i '1a ${config.SERVICE_IPS.qa1}' '${config.ANSIBLE_INVENTORY_FILE}'
         sed -i '2a ${config.SERVICE_IPS.qa2}' '${config.ANSIBLE_INVENTORY_FILE}'
     else
 	sed -i '1a ${config.SERVICE_IPS[params.ENVIRONMENTS]}' '${config.ANSIBLE_INVENTORY_FILE}'
