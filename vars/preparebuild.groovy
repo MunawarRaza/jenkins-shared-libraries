@@ -10,19 +10,15 @@ sh"""
     echo tag_name: '${params.TAG}' >>tags.txt
     echo job_name: '${JOB_NAME}' >>tags.txt
     echo env_name: '${params.ENVIRONMENTS}' >>tags.txt
-    echo workspace_name: '${WORKSPACE}' >>tags.txt
-    echo Docker Registory: '${config.DOCKER_REGISTRY}' >>tags.txt
-    cp -r '${config.SCRIPTS_DIR}'/'${config.DEPLOYMENT_FILE}' .
 
     echo ### Setup Inventory file for the deployment ###
-     
-    echo '[${params.ENVIRONMENTS}]' >> '${config.ANSIBLE_INVENTORY_FILE}' 
-    sed -i '1a ${config.SERVICE_IPS[params.ENVIRONMENTS]}' '${config.ANSIBLE_INVENTORY_FILE}'	
+     cp -f '${config.SCRIPTS_DIR}'/'${config.DEPLOYMENT_FILE}' .
+     echo '[${params.ENVIRONMENTS}]' >> '${config.ANSIBLE_INVENTORY_FILE}'
     if [ ${params.ENVIRONMENTS} = 'sync' ];then
-	rm -f '${config.ANSIBLE_INVENTORY_FILE}'
-        echo '[${params.ENVIRONMENTS}]' >> '${config.ANSIBLE_INVENTORY_FILE}'
-        sed -i '1a ${config.SERVICE_IPS[1]}' '${config.ANSIBLE_INVENTORY_FILE}'
-        sed -i '2a ${config.SERVICE_IPS[2]}' '${config.ANSIBLE_INVENTORY_FILE}'
+        sed -i '1a ${config.SERVICE_IPS.qa1' '${config.ANSIBLE_INVENTORY_FILE}'
+        sed -i '2a ${config.SERVICE_IPS.qa2}' '${config.ANSIBLE_INVENTORY_FILE}'
+    else
+	sed -i '1a ${config.SERVICE_IPS[params.ENVIRONMENTS]}' '${config.ANSIBLE_INVENTORY_FILE}'
     fi
 """
     }
