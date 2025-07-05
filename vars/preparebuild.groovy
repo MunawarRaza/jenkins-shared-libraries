@@ -6,6 +6,7 @@ sh"""
      
     echo '${config.DEPLOYMENT_FILE}'
     rm -f tags.txt
+    rm -f '${config.ANSIBLE_INVENTORY_FILE}'
     echo tag_name: '${params.TAG}' >>tags.txt
     echo job_name: '${JOB_NAME}' >>tags.txt
     echo env_name: '${params.ENVIRONMENTS}' >>tags.txt
