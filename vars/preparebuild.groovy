@@ -21,8 +21,8 @@ sh"""
     if [ ${params.ENVIRONMENTS} = 'sync' ];then
 	rm -f '${config.ANSIBLE_INVENTORY_FILE}'
         echo '[${params.ENVIRONMENTS}]' >> '${config.ANSIBLE_INVENTORY_FILE}'
-        sed -i '1a ${config.SERVICE_IPS.qa1}' '${config.ANSIBLE_INVENTORY_FILE}'
-        sed -i '2a ${config.SERVICE_IPS.qa2}' '${config.ANSIBLE_INVENTORY_FILE}'
+        sed -i '1a ${config.SERVICE_IPS[qa1]}' '${config.ANSIBLE_INVENTORY_FILE}'
+        sed -i '2a ${config.SERVICE_IPS[qa2]}' '${config.ANSIBLE_INVENTORY_FILE}'
     fi
 """
     }
